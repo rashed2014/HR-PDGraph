@@ -1,5 +1,5 @@
 
-# ![ReculseNet Logo](https://github.com/your-username/ReculseNet/blob/main/images/logo.png){:height="100px"}
+# ![ReculseNet Logo](https://github.com/your-username/ReculseNet/blob/main/images/logo.png)
 ReculseNet: PD Similarity and Redundancy Detection using Graph Analytics
 
 ReculseNet is a project aimed at detecting redundancies in organizational Position Descriptions (PDs) and providing recommendations for workforce optimization. This is achieved using semantic similarity models, graph-based analysis, and Graph Neural Networks (GNNs). The project leverages the O*NET database for job skills and responsibility mapping.
