@@ -1,0 +1,33 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Node.js
+node_modules/
+
+# IDEs and editors (e.g., VSCode, PyCharm, Sublime)
+.vscode/
+.idea/
+
+# MacOS Finder
+.DS_Store
+
+# Windows-specific files
+Thumbs.db
+
+# Log files
+*.log
+
+# Data files (Optional, can be used to avoid tracking large data files)
+data/
+
