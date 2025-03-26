@@ -1,6 +1,3 @@
-
-# ![ReculseNet Logo](A_digital_vector_illustration_features_a_black_sil.png){:height="100px"}
-
 <img src="A_digital_vector_illustration_features_a_black_sil.png" alt="ReculseNet Logo" width="150"/>
 
 # ReculseNet: PD Similarity and Redundancy Detection using Graph Analytics
