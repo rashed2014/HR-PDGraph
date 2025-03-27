@@ -4,7 +4,9 @@
 
 ReculseNet is a project aimed at detecting redundancies in organizational Position Descriptions (PDs) and providing recommendations for workforce optimization. This is achieved using semantic similarity models, graph-based analysis, and Graph Neural Networks (GNNs). The project leverages the O*NET database for job skills and responsibility mapping.
 
+## Data
 
+O Net V29.0
 
 
 ## Project Structure
