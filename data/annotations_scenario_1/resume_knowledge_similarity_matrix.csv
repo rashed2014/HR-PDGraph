@@ -1,0 +1,331 @@
+resume_id,job_title,knowledge_entity,similarity_score
+4,Computer Programmers,Administration and Management,0.3090472
+4,Computer Programmers,Administrative,0.23159304
+4,Computer Programmers,Economics and Accounting,0.22355103
+4,Computer Programmers,Sales and Marketing,0.26990655
+4,Computer Programmers,Customer and Personal Service,0.23224002
+4,Computer Programmers,Personnel and Human Resources,0.23838343
+4,Computer Programmers,Production and Processing,0.26190615
+4,Computer Programmers,Food Production,0.11434272
+4,Computer Programmers,Computers and Electronics,0.31370533
+4,Computer Programmers,Engineering and Technology,0.25876775
+4,Computer Programmers,Design,0.1794551
+4,Computer Programmers,Building and Construction,0.14487594
+4,Computer Programmers,Mechanical,0.106130734
+4,Computer Programmers,Mathematics,0.23087017
+4,Computer Programmers,Physics,0.13716972
+4,Computer Programmers,Chemistry,0.16706717
+4,Computer Programmers,Biology,0.069477364
+4,Computer Programmers,Psychology,0.16281092
+4,Computer Programmers,Sociology and Anthropology,0.025171354
+4,Computer Programmers,Geography,0.15581302
+4,Computer Programmers,Medicine and Dentistry,0.115001276
+4,Computer Programmers,Therapy and Counseling,0.032088988
+4,Computer Programmers,Education and Training,0.31341496
+4,Computer Programmers,English Language,0.21409795
+4,Computer Programmers,Foreign Language,0.16534518
+4,Computer Programmers,Fine Arts,0.031671554
+4,Computer Programmers,History and Archeology,-0.047167115
+4,Computer Programmers,Philosophy and Theology,0.025923224
+4,Computer Programmers,Public Safety and Security,0.09070373
+4,Computer Programmers,Law and Government,0.12792277
+4,Computer Programmers,Telecommunications,0.1839698
+4,Computer Programmers,Communications and Media,0.06582019
+4,Computer Programmers,Transportation,0.18392943
+4,Computer Systems Engineers/Architects,Administration and Management,0.3090472
+4,Computer Systems Engineers/Architects,Administrative,0.23159304
+4,Computer Systems Engineers/Architects,Economics and Accounting,0.22355103
+4,Computer Systems Engineers/Architects,Sales and Marketing,0.26990655
+4,Computer Systems Engineers/Architects,Customer and Personal Service,0.23224002
+4,Computer Systems Engineers/Architects,Personnel and Human Resources,0.23838343
+4,Computer Systems Engineers/Architects,Production and Processing,0.26190615
+4,Computer Systems Engineers/Architects,Food Production,0.11434272
+4,Computer Systems Engineers/Architects,Computers and Electronics,0.31370533
+4,Computer Systems Engineers/Architects,Engineering and Technology,0.25876775
+4,Computer Systems Engineers/Architects,Design,0.1794551
+4,Computer Systems Engineers/Architects,Building and Construction,0.14487594
+4,Computer Systems Engineers/Architects,Mechanical,0.106130734
+4,Computer Systems Engineers/Architects,Mathematics,0.23087017
+4,Computer Systems Engineers/Architects,Physics,0.13716972
+4,Computer Systems Engineers/Architects,Chemistry,0.16706717
+4,Computer Systems Engineers/Architects,Biology,0.069477364
+4,Computer Systems Engineers/Architects,Psychology,0.16281092
+4,Computer Systems Engineers/Architects,Sociology and Anthropology,0.025171354
+4,Computer Systems Engineers/Architects,Geography,0.15581302
+4,Computer Systems Engineers/Architects,Medicine and Dentistry,0.115001276
+4,Computer Systems Engineers/Architects,Therapy and Counseling,0.032088988
+4,Computer Systems Engineers/Architects,Education and Training,0.31341496
+4,Computer Systems Engineers/Architects,English Language,0.21409795
+4,Computer Systems Engineers/Architects,Foreign Language,0.16534518
+4,Computer Systems Engineers/Architects,Fine Arts,0.031671554
+4,Computer Systems Engineers/Architects,History and Archeology,-0.047167115
+4,Computer Systems Engineers/Architects,Philosophy and Theology,0.025923224
+4,Computer Systems Engineers/Architects,Public Safety and Security,0.09070373
+4,Computer Systems Engineers/Architects,Law and Government,0.12792277
+4,Computer Systems Engineers/Architects,Telecommunications,0.1839698
+4,Computer Systems Engineers/Architects,Communications and Media,0.06582019
+4,Computer Systems Engineers/Architects,Transportation,0.18392943
+4,Computer and Information Research Scientists,Administration and Management,0.3090472
+4,Computer and Information Research Scientists,Administrative,0.23159304
+4,Computer and Information Research Scientists,Economics and Accounting,0.22355103
+4,Computer and Information Research Scientists,Sales and Marketing,0.26990655
+4,Computer and Information Research Scientists,Customer and Personal Service,0.23224002
+4,Computer and Information Research Scientists,Personnel and Human Resources,0.23838343
+4,Computer and Information Research Scientists,Production and Processing,0.26190615
+4,Computer and Information Research Scientists,Food Production,0.11434272
+4,Computer and Information Research Scientists,Computers and Electronics,0.31370533
+4,Computer and Information Research Scientists,Engineering and Technology,0.25876775
+4,Computer and Information Research Scientists,Design,0.1794551
+4,Computer and Information Research Scientists,Building and Construction,0.14487594
+4,Computer and Information Research Scientists,Mechanical,0.106130734
+4,Computer and Information Research Scientists,Mathematics,0.23087017
+4,Computer and Information Research Scientists,Physics,0.13716972
+4,Computer and Information Research Scientists,Chemistry,0.16706717
+4,Computer and Information Research Scientists,Biology,0.069477364
+4,Computer and Information Research Scientists,Psychology,0.16281092
+4,Computer and Information Research Scientists,Sociology and Anthropology,0.025171354
+4,Computer and Information Research Scientists,Geography,0.15581302
+4,Computer and Information Research Scientists,Medicine and Dentistry,0.115001276
+4,Computer and Information Research Scientists,Therapy and Counseling,0.032088988
+4,Computer and Information Research Scientists,Education and Training,0.31341496
+4,Computer and Information Research Scientists,English Language,0.21409795
+4,Computer and Information Research Scientists,Foreign Language,0.16534518
+4,Computer and Information Research Scientists,Fine Arts,0.031671554
+4,Computer and Information Research Scientists,History and Archeology,-0.047167115
+4,Computer and Information Research Scientists,Philosophy and Theology,0.025923224
+4,Computer and Information Research Scientists,Public Safety and Security,0.09070373
+4,Computer and Information Research Scientists,Law and Government,0.12792277
+4,Computer and Information Research Scientists,Telecommunications,0.1839698
+4,Computer and Information Research Scientists,Communications and Media,0.06582019
+4,Computer and Information Research Scientists,Transportation,0.18392943
+4,Database Administrators,Administration and Management,0.3090472
+4,Database Administrators,Administrative,0.23159304
+4,Database Administrators,Economics and Accounting,0.22355103
+4,Database Administrators,Sales and Marketing,0.26990655
+4,Database Administrators,Customer and Personal Service,0.23224002
+4,Database Administrators,Personnel and Human Resources,0.23838343
+4,Database Administrators,Production and Processing,0.26190615
+4,Database Administrators,Food Production,0.11434272
+4,Database Administrators,Computers and Electronics,0.31370533
+4,Database Administrators,Engineering and Technology,0.25876775
+4,Database Administrators,Design,0.1794551
+4,Database Administrators,Building and Construction,0.14487594
+4,Database Administrators,Mechanical,0.106130734
+4,Database Administrators,Mathematics,0.23087017
+4,Database Administrators,Physics,0.13716972
+4,Database Administrators,Chemistry,0.16706717
+4,Database Administrators,Biology,0.069477364
+4,Database Administrators,Psychology,0.16281092
+4,Database Administrators,Sociology and Anthropology,0.025171354
+4,Database Administrators,Geography,0.15581302
+4,Database Administrators,Medicine and Dentistry,0.115001276
+4,Database Administrators,Therapy and Counseling,0.032088988
+4,Database Administrators,Education and Training,0.31341496
+4,Database Administrators,English Language,0.21409795
+4,Database Administrators,Foreign Language,0.16534518
+4,Database Administrators,Fine Arts,0.031671554
+4,Database Administrators,History and Archeology,-0.047167115
+4,Database Administrators,Philosophy and Theology,0.025923224
+4,Database Administrators,Public Safety and Security,0.09070373
+4,Database Administrators,Law and Government,0.12792277
+4,Database Administrators,Telecommunications,0.1839698
+4,Database Administrators,Communications and Media,0.06582019
+4,Database Administrators,Transportation,0.18392943
+4,Web Developers,Administration and Management,0.3090472
+4,Web Developers,Administrative,0.23159304
+4,Web Developers,Economics and Accounting,0.22355103
+4,Web Developers,Sales and Marketing,0.26990655
+4,Web Developers,Customer and Personal Service,0.23224002
+4,Web Developers,Personnel and Human Resources,0.23838343
+4,Web Developers,Production and Processing,0.26190615
+4,Web Developers,Food Production,0.11434272
+4,Web Developers,Computers and Electronics,0.31370533
+4,Web Developers,Engineering and Technology,0.25876775
+4,Web Developers,Design,0.1794551
+4,Web Developers,Building and Construction,0.14487594
+4,Web Developers,Mechanical,0.106130734
+4,Web Developers,Mathematics,0.23087017
+4,Web Developers,Physics,0.13716972
+4,Web Developers,Chemistry,0.16706717
+4,Web Developers,Biology,0.069477364
+4,Web Developers,Psychology,0.16281092
+4,Web Developers,Sociology and Anthropology,0.025171354
+4,Web Developers,Geography,0.15581302
+4,Web Developers,Medicine and Dentistry,0.115001276
+4,Web Developers,Therapy and Counseling,0.032088988
+4,Web Developers,Education and Training,0.31341496
+4,Web Developers,English Language,0.21409795
+4,Web Developers,Foreign Language,0.16534518
+4,Web Developers,Fine Arts,0.031671554
+4,Web Developers,History and Archeology,-0.047167115
+4,Web Developers,Philosophy and Theology,0.025923224
+4,Web Developers,Public Safety and Security,0.09070373
+4,Web Developers,Law and Government,0.12792277
+4,Web Developers,Telecommunications,0.1839698
+4,Web Developers,Communications and Media,0.06582019
+4,Web Developers,Transportation,0.18392943
+5,Computer Network Architects,Administration and Management,0.28488767
+5,Computer Network Architects,Administrative,0.2487419
+5,Computer Network Architects,Economics and Accounting,0.12323059
+5,Computer Network Architects,Sales and Marketing,0.12111661
+5,Computer Network Architects,Customer and Personal Service,0.09102981
+5,Computer Network Architects,Personnel and Human Resources,0.235103
+5,Computer Network Architects,Production and Processing,0.23225811
+5,Computer Network Architects,Food Production,0.08158088
+5,Computer Network Architects,Computers and Electronics,0.41821903
+5,Computer Network Architects,Engineering and Technology,0.3770032
+5,Computer Network Architects,Design,0.27257037
+5,Computer Network Architects,Building and Construction,0.18046454
+5,Computer Network Architects,Mechanical,0.2319983
+5,Computer Network Architects,Mathematics,0.2749547
+5,Computer Network Architects,Physics,0.21733004
+5,Computer Network Architects,Chemistry,0.16001229
+5,Computer Network Architects,Biology,0.12635419
+5,Computer Network Architects,Psychology,0.17113265
+5,Computer Network Architects,Sociology and Anthropology,0.07833379
+5,Computer Network Architects,Geography,0.11515844
+5,Computer Network Architects,Medicine and Dentistry,0.11827393
+5,Computer Network Architects,Therapy and Counseling,0.058978654
+5,Computer Network Architects,Education and Training,0.38803366
+5,Computer Network Architects,English Language,0.25152236
+5,Computer Network Architects,Foreign Language,0.2970106
+5,Computer Network Architects,Fine Arts,0.19069827
+5,Computer Network Architects,History and Archeology,0.04505926
+5,Computer Network Architects,Philosophy and Theology,0.042394165
+5,Computer Network Architects,Public Safety and Security,0.122527175
+5,Computer Network Architects,Law and Government,0.14389169
+5,Computer Network Architects,Telecommunications,0.2262466
+5,Computer Network Architects,Communications and Media,0.05918428
+5,Computer Network Architects,Transportation,0.17486638
+5,Computer Programmers,Administration and Management,0.28488767
+5,Computer Programmers,Administrative,0.2487419
+5,Computer Programmers,Economics and Accounting,0.12323059
+5,Computer Programmers,Sales and Marketing,0.12111661
+5,Computer Programmers,Customer and Personal Service,0.09102981
+5,Computer Programmers,Personnel and Human Resources,0.235103
+5,Computer Programmers,Production and Processing,0.23225811
+5,Computer Programmers,Food Production,0.08158088
+5,Computer Programmers,Computers and Electronics,0.41821903
+5,Computer Programmers,Engineering and Technology,0.3770032
+5,Computer Programmers,Design,0.27257037
+5,Computer Programmers,Building and Construction,0.18046454
+5,Computer Programmers,Mechanical,0.2319983
+5,Computer Programmers,Mathematics,0.2749547
+5,Computer Programmers,Physics,0.21733004
+5,Computer Programmers,Chemistry,0.16001229
+5,Computer Programmers,Biology,0.12635419
+5,Computer Programmers,Psychology,0.17113265
+5,Computer Programmers,Sociology and Anthropology,0.07833379
+5,Computer Programmers,Geography,0.11515844
+5,Computer Programmers,Medicine and Dentistry,0.11827393
+5,Computer Programmers,Therapy and Counseling,0.058978654
+5,Computer Programmers,Education and Training,0.38803366
+5,Computer Programmers,English Language,0.25152236
+5,Computer Programmers,Foreign Language,0.2970106
+5,Computer Programmers,Fine Arts,0.19069827
+5,Computer Programmers,History and Archeology,0.04505926
+5,Computer Programmers,Philosophy and Theology,0.042394165
+5,Computer Programmers,Public Safety and Security,0.122527175
+5,Computer Programmers,Law and Government,0.14389169
+5,Computer Programmers,Telecommunications,0.2262466
+5,Computer Programmers,Communications and Media,0.05918428
+5,Computer Programmers,Transportation,0.17486638
+5,Computer Systems Engineers/Architects,Administration and Management,0.28488767
+5,Computer Systems Engineers/Architects,Administrative,0.2487419
+5,Computer Systems Engineers/Architects,Economics and Accounting,0.12323059
+5,Computer Systems Engineers/Architects,Sales and Marketing,0.12111661
+5,Computer Systems Engineers/Architects,Customer and Personal Service,0.09102981
+5,Computer Systems Engineers/Architects,Personnel and Human Resources,0.235103
+5,Computer Systems Engineers/Architects,Production and Processing,0.23225811
+5,Computer Systems Engineers/Architects,Food Production,0.08158088
+5,Computer Systems Engineers/Architects,Computers and Electronics,0.41821903
+5,Computer Systems Engineers/Architects,Engineering and Technology,0.3770032
+5,Computer Systems Engineers/Architects,Design,0.27257037
+5,Computer Systems Engineers/Architects,Building and Construction,0.18046454
+5,Computer Systems Engineers/Architects,Mechanical,0.2319983
+5,Computer Systems Engineers/Architects,Mathematics,0.2749547
+5,Computer Systems Engineers/Architects,Physics,0.21733004
+5,Computer Systems Engineers/Architects,Chemistry,0.16001229
+5,Computer Systems Engineers/Architects,Biology,0.12635419
+5,Computer Systems Engineers/Architects,Psychology,0.17113265
+5,Computer Systems Engineers/Architects,Sociology and Anthropology,0.07833379
+5,Computer Systems Engineers/Architects,Geography,0.11515844
+5,Computer Systems Engineers/Architects,Medicine and Dentistry,0.11827393
+5,Computer Systems Engineers/Architects,Therapy and Counseling,0.058978654
+5,Computer Systems Engineers/Architects,Education and Training,0.38803366
+5,Computer Systems Engineers/Architects,English Language,0.25152236
+5,Computer Systems Engineers/Architects,Foreign Language,0.2970106
+5,Computer Systems Engineers/Architects,Fine Arts,0.19069827
+5,Computer Systems Engineers/Architects,History and Archeology,0.04505926
+5,Computer Systems Engineers/Architects,Philosophy and Theology,0.042394165
+5,Computer Systems Engineers/Architects,Public Safety and Security,0.122527175
+5,Computer Systems Engineers/Architects,Law and Government,0.14389169
+5,Computer Systems Engineers/Architects,Telecommunications,0.2262466
+5,Computer Systems Engineers/Architects,Communications and Media,0.05918428
+5,Computer Systems Engineers/Architects,Transportation,0.17486638
+5,Computer and Information Research Scientists,Administration and Management,0.28488767
+5,Computer and Information Research Scientists,Administrative,0.2487419
+5,Computer and Information Research Scientists,Economics and Accounting,0.12323059
+5,Computer and Information Research Scientists,Sales and Marketing,0.12111661
+5,Computer and Information Research Scientists,Customer and Personal Service,0.09102981
+5,Computer and Information Research Scientists,Personnel and Human Resources,0.235103
+5,Computer and Information Research Scientists,Production and Processing,0.23225811
+5,Computer and Information Research Scientists,Food Production,0.08158088
+5,Computer and Information Research Scientists,Computers and Electronics,0.41821903
+5,Computer and Information Research Scientists,Engineering and Technology,0.3770032
+5,Computer and Information Research Scientists,Design,0.27257037
+5,Computer and Information Research Scientists,Building and Construction,0.18046454
+5,Computer and Information Research Scientists,Mechanical,0.2319983
+5,Computer and Information Research Scientists,Mathematics,0.2749547
+5,Computer and Information Research Scientists,Physics,0.21733004
+5,Computer and Information Research Scientists,Chemistry,0.16001229
+5,Computer and Information Research Scientists,Biology,0.12635419
+5,Computer and Information Research Scientists,Psychology,0.17113265
+5,Computer and Information Research Scientists,Sociology and Anthropology,0.07833379
+5,Computer and Information Research Scientists,Geography,0.11515844
+5,Computer and Information Research Scientists,Medicine and Dentistry,0.11827393
+5,Computer and Information Research Scientists,Therapy and Counseling,0.058978654
+5,Computer and Information Research Scientists,Education and Training,0.38803366
+5,Computer and Information Research Scientists,English Language,0.25152236
+5,Computer and Information Research Scientists,Foreign Language,0.2970106
+5,Computer and Information Research Scientists,Fine Arts,0.19069827
+5,Computer and Information Research Scientists,History and Archeology,0.04505926
+5,Computer and Information Research Scientists,Philosophy and Theology,0.042394165
+5,Computer and Information Research Scientists,Public Safety and Security,0.122527175
+5,Computer and Information Research Scientists,Law and Government,0.14389169
+5,Computer and Information Research Scientists,Telecommunications,0.2262466
+5,Computer and Information Research Scientists,Communications and Media,0.05918428
+5,Computer and Information Research Scientists,Transportation,0.17486638
+5,Robotics Engineers,Administration and Management,0.28488767
+5,Robotics Engineers,Administrative,0.2487419
+5,Robotics Engineers,Economics and Accounting,0.12323059
+5,Robotics Engineers,Sales and Marketing,0.12111661
+5,Robotics Engineers,Customer and Personal Service,0.09102981
+5,Robotics Engineers,Personnel and Human Resources,0.235103
+5,Robotics Engineers,Production and Processing,0.23225811
+5,Robotics Engineers,Food Production,0.08158088
+5,Robotics Engineers,Computers and Electronics,0.41821903
+5,Robotics Engineers,Engineering and Technology,0.3770032
+5,Robotics Engineers,Design,0.27257037
+5,Robotics Engineers,Building and Construction,0.18046454
+5,Robotics Engineers,Mechanical,0.2319983
+5,Robotics Engineers,Mathematics,0.2749547
+5,Robotics Engineers,Physics,0.21733004
+5,Robotics Engineers,Chemistry,0.16001229
+5,Robotics Engineers,Biology,0.12635419
+5,Robotics Engineers,Psychology,0.17113265
+5,Robotics Engineers,Sociology and Anthropology,0.07833379
+5,Robotics Engineers,Geography,0.11515844
+5,Robotics Engineers,Medicine and Dentistry,0.11827393
+5,Robotics Engineers,Therapy and Counseling,0.058978654
+5,Robotics Engineers,Education and Training,0.38803366
+5,Robotics Engineers,English Language,0.25152236
+5,Robotics Engineers,Foreign Language,0.2970106
+5,Robotics Engineers,Fine Arts,0.19069827
+5,Robotics Engineers,History and Archeology,0.04505926
+5,Robotics Engineers,Philosophy and Theology,0.042394165
+5,Robotics Engineers,Public Safety and Security,0.122527175
+5,Robotics Engineers,Law and Government,0.14389169
+5,Robotics Engineers,Telecommunications,0.2262466
+5,Robotics Engineers,Communications and Media,0.05918428
+5,Robotics Engineers,Transportation,0.17486638

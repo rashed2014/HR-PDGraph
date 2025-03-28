@@ -29,5 +29,18 @@ Thumbs.db
 *.log
 
 # Data files (Optional, can be used to avoid tracking large data files)
-data/
+# Ignore all contents inside specific directories
+data/O_Net_MySQL/
+data/O_Net_SqlLite/
 
+# Ignore all .db, .json, and .zip files inside annotations_scenario_1/
+data/annotations_scenario_1/*.db
+data/annotations_scenario_1/*.json
+data/annotations_scenario_1/*.xlsx
+
+
+# Ignore .zip files inside annotations_scenario_1/ and ALL subdirectories
+data/annotations_scenario_1/**/*.zip
+
+# Ragatoullie
+.ragatouille/

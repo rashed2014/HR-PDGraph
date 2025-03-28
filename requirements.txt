@@ -1,3 +1,4 @@
 neo4j
 transformers
 faiss-gpu-cu12
+
