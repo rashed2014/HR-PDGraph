@@ -11,8 +11,8 @@ O Net V29.0
 
 ## Project Structure
 
-- **Data Preprocessing**: Chunk and embed PDs and resumes into a Neo4j graph.
-- **Modeling**: Use ColBERTv2 and Graph Neural Networks for similarity scoring and clustering.
+- **Data Preprocessing**: Noun phrase with textblob
+- **Modeling**: embedding with sentence transformer
 - **Graph Analytics**: Use Neo4j and Graph Data Science (GDS) to analyze job-role redundancies, skill overlaps, and job clusters.
 - **Evaluation**: Validate results with human-annotated datasets and provide actionable recommendations.
 
@@ -23,6 +23,7 @@ O Net V29.0
 - Python 3.x
 - Neo4j (if using Neo4j database)
 - Docker (optional, if using Docker containers)
+- sqlite3 (apt install)
 
 ### Set up the environment
 
@@ -56,10 +57,11 @@ O Net V29.0
     pip install -r requirements.txt
     ```
 
+6. Run notebooks/SQLiteSetUP
+
 ## Usage
 
 1. Preprocess PDs and resumes to generate graph nodes and edges.
-2. Use ColBERTv2 for semantic matching of PDs to O*NET entities.
 3. Apply graph metrics (e.g., Louvain, PageRank) for redundancy detection and workforce optimization.
 4. Train and evaluate the Graph Neural Network for PD clustering and predictive matching.
 
