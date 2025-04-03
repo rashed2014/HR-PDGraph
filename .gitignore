@@ -30,12 +30,12 @@ Thumbs.db
 
 # Data files (Optional, can be used to avoid tracking large data files)
 # Ignore all contents inside specific directories
-data/similarity_outputs/
-data/o_net_files/
+data/similarity_outputs/*.*
+data/o_net_files/*.*
 
 # Ignore all .db, .json, and .zip files inside annotations_scenario_1/
 data/annotations_scenario_1/*.db
-data/annotations_scenario_1/*.json
+#data/annotations_scenario_1/*.json
 data/annotations_scenario_1/*.xlsx
 
 
