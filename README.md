@@ -1,12 +1,13 @@
 <img src="logo/hr-pdgraph-logo.png" alt="HR PDGraph Logo" width="150"/>
 
-# ReculseNet: PD Similarity and Redundancy Detection using Graph Analytics
+# HR-PDGraph: An analytic tool to map, evaluate, and generate position descriptions using AI and graph intelligence.
 
-ReculseNet is a project aimed at detecting redundancies in organizational Position Descriptions (PDs) and providing recommendations for workforce optimization. This is achieved using semantic similarity models, graph-based analysis, and Graph Neural Networks (GNNs). The project leverages the O*NET database for job skills and responsibility mapping.
+HR-PDGraph is a data-driven, explainable AI platform designed to help HR leaders and hiring stakeholders analyze, cluster, and generate position descriptions (PDs) using graph-based modeling and machine learning. By linking PDs to standardized skills (KSAs), occupations, and validated PCA-based role traits from frameworks like O*NET and VOLCANO, HR-PDGraph enables traceable scoring, role alignment, and future-ready workforce planning. The system supports transparent evaluation of new or evolving roles and provides AI-assisted PD generation to match organizational talent clusters and strategic hiring goals.
 
 ## Data
 
-O Net V29.0
+<a href="https://www.example.com">O* Net V29.0 </a>
+<a href="https://github.com/juchiyu/OccupationPCAs">VOLCANA Data Generator</a>
 
 
 ## Project Structure
