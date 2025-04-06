@@ -1,6 +1,6 @@
 <img src="logo/hr-pdgraph-logo.png" alt="HR PDGraph Logo" width="150"/>
 
-# HR-PDGraph: An analytic tool to map, evaluate, and generate position descriptions using AI and graph intelligence.
+# HR-PDGraph: An analytic tool to map, evaluate, and generate position descriptions templates using graph data science and AI.
 
 HR-PDGraph is a data-driven, explainable AI platform designed to help HR leaders and hiring stakeholders analyze, cluster, and generate position descriptions (PDs) using graph-based modeling and machine learning. By linking PDs to standardized skills (KSAs), occupations, and validated PCA-based role traits from frameworks like O*NET and VOLCANO, HR-PDGraph enables traceable scoring, role alignment, and future-ready workforce planning. The system supports transparent evaluation of new or evolving roles and provides AI-assisted PD generation to match organizational talent clusters and strategic hiring goals.
 
