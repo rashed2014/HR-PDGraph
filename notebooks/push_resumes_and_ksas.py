@@ -60,6 +60,7 @@ def create_constraints(tx, entity_labels):
     tx.run("CREATE CONSTRAINT IF NOT EXISTS FOR (j:JobTitle) REQUIRE j.title IS UNIQUE")
     for label in entity_labels:
         tx.run(f"CREATE CONSTRAINT IF NOT EXISTS FOR (e:{label}) REQUIRE e.text IS UNIQUE")
+        tx.run(f"CREATE INDEX IF NOT EXISTS FOR (e:{label}) ON (e.onetsoc_code)")
 
 # ------------------------------------------
 # Step 3: Load resumes from SQLite
@@ -94,6 +95,7 @@ def push_to_neo4j(tx, record, entity_label, entity_key):
         MERGE (n:NounPhrase {{text: $noun_phrase}})
         MERGE (e:{entity_label} {{text: $entity_text}})
         MERGE (j:JobTitle {{title: $job_title}})
+        SET j.onetsoc_code = $onetsoc_code
         MERGE (r)-[:CONTAINS]->(n)
         MERGE (n)-[s:SIMILAR_TO]->(e)
         SET s.score = $similarity_score
@@ -106,7 +108,8 @@ def push_to_neo4j(tx, record, entity_label, entity_key):
            noun_phrase=record["noun_phrase"],
            entity_text=record[entity_key],
            similarity_score=round(record["similarity_score"], 4),
-           data_value=record["data_value"])
+           data_value=record["data_value"],
+           onetsoc_code=record["onetsoc_code"])
 
 # ------------------------------------------
 # Step 5: Main logic

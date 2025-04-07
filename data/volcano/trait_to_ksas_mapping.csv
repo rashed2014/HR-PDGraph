@@ -1,0 +1,136 @@
+trait_text,matched_entity_text,matched_category
+Arm.Hand.Steadiness,arm-hand steadiness,abilities
+Auditory.Attention,auditory attention,abilities
+Category.Flexibility,category flexibility,abilities
+Control.Precision,control precision,abilities
+Deductive.Reasoning,deductive reasoning,abilities
+Deductive.Reasoning,inductive reasoning,abilities
+Depth.Perception,depth perception,abilities
+Dynamic.Flexibility,dynamic flexibility,abilities
+Dynamic.Strength,dynamic strength,abilities
+Explosive.Strength,explosive strength,abilities
+Extent.Flexibility,extent flexibility,abilities
+Far.Vision,far vision,abilities
+Far.Vision,near vision,abilities
+Finger.Dexterity,finger dexterity,abilities
+Flexibility.of.Closure,flexibility of closure,abilities
+Fluency.of.Ideas,fluency of ideas,abilities
+Glare.Sensitivity,glare sensitivity,abilities
+Gross.Body.Coordination,gross body coordination,abilities
+Gross.Body.Equilibrium,gross body equilibrium,abilities
+Hearing.Sensitivity,hearing sensitivity,abilities
+Inductive.Reasoning,inductive reasoning,abilities
+Inductive.Reasoning,deductive reasoning,abilities
+Information.Ordering,information ordering,abilities
+Manual.Dexterity,manual dexterity,abilities
+Mathematical.Reasoning,mathematical reasoning,abilities
+Memorization,memorization,abilities
+Multilimb.Coordination,multilimb coordination,abilities
+Near.Vision,near vision,abilities
+Near.Vision,far vision,abilities
+Night.Vision,night vision,abilities
+Number.Facility,number facility,abilities
+Oral.Comprehension,oral comprehension,abilities
+Oral.Comprehension,reading comprehension,skills
+Oral.Expression,oral expression,abilities
+Originality,originality,abilities
+Perceptual.Speed,perceptual speed,abilities
+Peripheral.Vision,peripheral vision,abilities
+Problem.Sensitivity,problem sensitivity,abilities
+Rate.Control,rate control,abilities
+Reaction.Time,reaction time,abilities
+Response.Orientation,response orientation,abilities
+Selective.Attention,selective attention,abilities
+Sound.Localization,sound localization,abilities
+Spatial.Orientation,spatial orientation,abilities
+Speech.Clarity,speech clarity,abilities
+Speech.Recognition,speech recognition,abilities
+Speed.of.Closure,speed of closure,abilities
+Speed.of.Limb.Movement,speed of limb movement,abilities
+Stamina,stamina,abilities
+Static.Strength,static strength,abilities
+Time.Sharing,time sharing,abilities
+Trunk.Strength,trunk strength,abilities
+Visual.Color.Discrimination,visual color discrimination,abilities
+Visualization,visualization,abilities
+Wrist.Finger.Speed,wrist-finger speed,abilities
+Written.Comprehension,written comprehension,abilities
+Written.Comprehension,reading comprehension,skills
+Written.Expression,written expression,abilities
+Administration.and.Management,administration and management,knowledge
+Biology,biology,knowledge
+Building.and.Construction,building and construction,knowledge
+Chemistry,chemistry,knowledge
+Communications.and.Media,communications and media,knowledge
+Computers.and.Electronics,computers and electronics,knowledge
+Customer.and.Personal.Service,customer and personal service,knowledge
+Design,design,knowledge
+Economics.and.Accounting,economics and accounting,knowledge
+Education.and.Training,education and training,knowledge
+Engineering.and.Technology,engineering and technology,knowledge
+English.Language,english language,knowledge
+Fine.Arts,fine arts,knowledge
+Food.Production,food production,knowledge
+Foreign.Language,foreign language,knowledge
+Geography,geography,knowledge
+History.and.Archeology,history and archeology,knowledge
+Law.and.Government,law and government,knowledge
+Mechanical,mechanical,knowledge
+Medicine.and.Dentistry,medicine and dentistry,knowledge
+Personnel.and.Human.Resources,personnel and human resources,knowledge
+Philosophy.and.Theology,philosophy and theology,knowledge
+Physics,physics,knowledge
+Production.and.Processing,production and processing,knowledge
+Psychology,psychology,knowledge
+Public.Safety.and.Security,public safety and security,knowledge
+Sales.and.Marketing,sales and marketing,knowledge
+Sociology.and.Anthropology,sociology and anthropology,knowledge
+Telecommunications,telecommunications,knowledge
+Therapy.and.Counseling,therapy and counseling,knowledge
+Transportation,transportation,knowledge
+Active.Learning,active learning,skills
+Active.Learning,active listening,skills
+Active.Listening,active listening,skills
+Active.Listening,active learning,skills
+Complex.Problem.Solving,complex problem solving,skills
+Coordination,coordination,skills
+Critical.Thinking,critical thinking,skills
+Equipment.Maintenance,equipment maintenance,skills
+Equipment.Selection,equipment selection,skills
+Installation,installation,skills
+Instructing,instructing,skills
+Judgment.and.Decision.Making,judgment and decision making,skills
+Learning.Strategies,learning strategies,skills
+Management.of.Financial.Resources,management of financial resources,skills
+Management.of.Financial.Resources,management of material resources,skills
+Management.of.Financial.Resources,management of personnel resources,skills
+Management.of.Material.Resources,management of material resources,skills
+Management.of.Material.Resources,management of financial resources,skills
+Management.of.Material.Resources,management of personnel resources,skills
+Management.of.Personnel.Resources,management of personnel resources,skills
+Management.of.Personnel.Resources,management of material resources,skills
+Management.of.Personnel.Resources,management of financial resources,skills
+MathematicsSkill,mathematics,skills
+MathematicsSkill,mathematics,knowledge
+Monitoring,monitoring,skills
+Negotiation,negotiation,skills
+Operation.and.Control,operation and control,skills
+Operation.Monitoring,operations monitoring,skills
+Operations.Analysis,operations analysis,skills
+Persuasion,persuasion,skills
+Programming,programming,skills
+Quality.Control.Analysis,quality control analysis,skills
+Reading.Comprehension,oral comprehension,abilities
+Reading.Comprehension,written comprehension,abilities
+Reading.Comprehension,reading comprehension,skills
+Repairing,repairing,skills
+Science,science,skills
+Service.Orientation,service orientation,skills
+Social.Perceptiveness,social perceptiveness,skills
+Speaking,speaking,skills
+Systems.Analysis,systems analysis,skills
+Systems.Evaluation,systems evaluation,skills
+Technology.Design,technology design,skills
+Time.Management,time management,skills
+Troubleshooting,troubleshooting,skills
+Writing,writing,skills
