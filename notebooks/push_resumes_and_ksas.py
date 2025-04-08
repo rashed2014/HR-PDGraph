@@ -1,5 +1,4 @@
 import os
-import sqlite3
 import pandas as pd
 import logging
 from neo4j import GraphDatabase
@@ -12,10 +11,9 @@ NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "recluse2025"
 
 input_dir = "../data/similarity_outputs"
-db_path = "../data/annotations_scenario_1/annotations_scenario_1.db"
+resume_csv_path = "../data/annotations_scenario_1/cleaned_resumes.csv"
 
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
-
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 # ------------------------------------------
@@ -26,29 +24,24 @@ def delete_all_nodes(tx):
     tx.run("MATCH (n) DETACH DELETE n")
 
 def drop_constraints(tx):
-    constraints = tx.run("SHOW CONSTRAINTS").data()
-    for record in constraints:
+    for record in tx.run("SHOW CONSTRAINTS").data():
         tx.run(f"DROP CONSTRAINT {record['name']}")
 
 def drop_indexes(tx):
-    indexes = tx.run("SHOW INDEXES").data()
-    for record in indexes:
+    for record in tx.run("SHOW INDEXES").data():
         tx.run(f"DROP INDEX {record['name']}")
 
 def clear_database():
     with driver.session() as session:
-        print("🧹 Deleting all nodes and relationships...")
+        logging.info("🧹 Deleting all nodes and relationships...")
         session.execute_write(delete_all_nodes)
-
     with driver.session() as session:
-        print("🧹 Dropping all constraints...")
+        logging.info("🧹 Dropping all constraints...")
         session.execute_write(drop_constraints)
-
     with driver.session() as session:
-        print("🧹 Dropping all indexes...")
+        logging.info("🧹 Dropping all indexes...")
         session.execute_write(drop_indexes)
-
-    print("✅ Neo4j fully cleared.")
+    logging.info("✅ Neo4j fully cleared.")
 
 # ------------------------------------------
 # Step 2: Create constraints dynamically
@@ -63,30 +56,22 @@ def create_constraints(tx, entity_labels):
         tx.run(f"CREATE INDEX IF NOT EXISTS FOR (e:{label}) ON (e.onetsoc_code)")
 
 # ------------------------------------------
-# Step 3: Load resumes from SQLite
+# Step 3: Load resume CSV and create Resume nodes
 # ------------------------------------------
 
-def load_resumes_from_sqlite():
-    conn = sqlite3.connect(db_path)
-    query = """
-    SELECT r.id AS resume_id, r.resume_text
-    FROM resumes r
-    JOIN annotations a ON r.id = a.resume_id
-    JOIN predicted_jobs pj ON r.id = pj.resume_id
-    WHERE a.rating >= 3;
-    """
-    df_resumes = pd.read_sql_query(query, conn)
-    conn.close()
-    return df_resumes
+def load_resumes_from_csv():
+    df = pd.read_csv(resume_csv_path)
+    return df[["resume_id", "resume_text", "original_job"]].drop_duplicates()
 
-def push_resume_node(tx, resume_id, resume_text):
+def push_resume_node(tx, resume_id, resume_text, original_job):
     tx.run("""
         MERGE (r:Resume {id: $resume_id})
-        SET r.resume_text = $resume_text
-    """, resume_id=resume_id, resume_text=resume_text)
+        SET r.resume_text = $resume_text,
+            r.original_job = $original_job
+    """, resume_id=resume_id, resume_text=resume_text, original_job=original_job)
 
 # ------------------------------------------
-# Step 4: Push similarity records
+# Step 4: Push similarity data and build graph
 # ------------------------------------------
 
 def push_to_neo4j(tx, record, entity_label, entity_key):
@@ -104,67 +89,67 @@ def push_to_neo4j(tx, record, entity_label, entity_key):
     """
     tx.run(query,
            resume_id=record["resume_id"],
-           job_title=record["job_title"],
+           original_job=record["original_job"],
            noun_phrase=record["noun_phrase"],
            entity_text=record[entity_key],
+           job_title=record["entity_job_title"],
            similarity_score=round(record["similarity_score"], 4),
            data_value=record["data_value"],
            onetsoc_code=record["onetsoc_code"])
 
 # ------------------------------------------
-# Step 5: Main logic
+# Step 5: Main execution
 # ------------------------------------------
 
 def main():
-    # Clear the existing graph
+    # Reset the database
     clear_database()
 
-    # Collect actual entity labels from filenames
+    # Detect all entity labels from filenames
     entity_labels = []
     for file in os.listdir(input_dir):
         if file.endswith(".csv") and file.startswith("resume_"):
-            category_name = file.replace("resume_", "").replace("_similarity_matrix.csv", "")
-            entity_labels.append(category_name.capitalize())
+            category = file.replace("resume_", "").replace("_similarity_matrix.csv", "")
+            entity_labels.append(category.capitalize())
 
-    # Create schema constraints
     with driver.session() as session:
         session.execute_write(create_constraints, entity_labels)
-        print(f"✅ Constraints created for: {entity_labels}")
+        logging.info(f"✅ Constraints created for: {entity_labels}")
 
-    # Create Resume nodes from SQLite
-    df_resumes = load_resumes_from_sqlite()
+    # Load and create resume nodes
+    df_resumes = load_resumes_from_csv()
     with driver.session() as session:
         for _, row in df_resumes.iterrows():
-            session.execute_write(push_resume_node, row["resume_id"], row["resume_text"])
-    print(f"✅ Created {len(df_resumes)} Resume nodes from SQLite.")
+            session.execute_write(push_resume_node, row["resume_id"], row["resume_text"], row["original_job"])
+    logging.info(f"✅ Created {len(df_resumes)} Resume nodes.")
 
-    # Push similarity matrix data
+    # Load similarity files and create graph links
     with driver.session() as session:
         for file in os.listdir(input_dir):
             if file.endswith(".csv") and file.startswith("resume_"):
-                category_name = file.replace("resume_", "").replace("_similarity_matrix.csv", "")
-                entity_label = category_name.capitalize()
-                entity_key = f"{category_name}_entity"
+                category = file.replace("resume_", "").replace("_similarity_matrix.csv", "")
+                entity_label = category.capitalize()
+                entity_key = f"{category}_entity"
                 file_path = os.path.join(input_dir, file)
 
                 logging.info(f"📂 Loading: {file_path}")
                 df = pd.read_csv(file_path)
 
-                if entity_key not in df.columns:
-                    logging.warning(f"⚠️ Column '{entity_key}' not found in {file}")
+                required_cols = ["resume_id", "noun_phrase", entity_key, "similarity_score", "data_value", "entity_job_title", "onetsoc_code"]
+                if not all(col in df.columns for col in required_cols):
+                    logging.warning(f"⚠️ Required columns missing in {file}, skipping.")
                     continue
 
                 for _, row in df.iterrows():
                     session.execute_write(push_to_neo4j, row, entity_label, entity_key)
 
-                logging.info(f"✅ Finished pushing {category_name} data to Neo4j.")
+                logging.info(f"✅ Finished pushing {category} data.")
 
     driver.close()
-    logging.info("🎉 All data successfully pushed to Neo4j.")
+    logging.info("🎉 All graph data pushed successfully to Neo4j.")
 
 # ------------------------------------------
-# Entry point
+# Run the script
 # ------------------------------------------
-
 if __name__ == "__main__":
     main()
