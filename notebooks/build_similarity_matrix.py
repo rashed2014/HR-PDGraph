@@ -41,7 +41,9 @@ def compute_resume_similarity(resume_row, df_onet, model, category_name, thresho
         if col not in df_onet.columns:
             logging.error(f"Missing column '{col}' in O*NET data for category '{category_name}'")
             return results
-
+    
+     # ❌ Remove rows that are not Importance scale (e.g., Level "LV")
+    df_onet = df_onet[df_onet["scale_id"] == "IM"].copy()
     resume_id = resume_row["resume_id"]
     resume_text = resume_row["resume_text"]
     original_job = resume_row["original_job"]
@@ -73,10 +75,11 @@ def compute_resume_similarity(resume_row, df_onet, model, category_name, thresho
                         "resume_id": resume_id,
                         "resume_text": resume_text,
                         "noun_phrase": noun_phrase,
-                        "ksa_entity": entity,
+                        f"{category_name}_entity": entity,
                         "similarity_score": round(score, 4),
                         "entity_job_title": matched_row["job_title"],
                         "onetsoc_code": matched_row["onetsoc_code"],
+                        "scale_id": matched_row["scale_id"],
                         "data_value": matched_row["data_value"]
                     })
 

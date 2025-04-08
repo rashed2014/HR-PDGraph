@@ -89,13 +89,13 @@ def push_to_neo4j(tx, record, entity_label, entity_key):
     """
     tx.run(query,
            resume_id=record["resume_id"],
-           original_job=record["original_job"],
            noun_phrase=record["noun_phrase"],
            entity_text=record[entity_key],
            job_title=record["entity_job_title"],
            similarity_score=round(record["similarity_score"], 4),
            data_value=record["data_value"],
            onetsoc_code=record["onetsoc_code"])
+
 
 # ------------------------------------------
 # Step 5: Main execution
@@ -135,6 +135,7 @@ def main():
                 logging.info(f"📂 Loading: {file_path}")
                 df = pd.read_csv(file_path)
 
+                
                 required_cols = ["resume_id", "noun_phrase", entity_key, "similarity_score", "data_value", "entity_job_title", "onetsoc_code"]
                 if not all(col in df.columns for col in required_cols):
                     logging.warning(f"⚠️ Required columns missing in {file}, skipping.")
