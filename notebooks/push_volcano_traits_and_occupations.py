@@ -54,7 +54,8 @@ def push_trait_node(tx, row):
 def push_trait_alignment(tx, row):
     tx.run("""
         MATCH (t:Trait {text: $trait})
-        MATCH (e) WHERE toLower(e.text) = toLower($entity) AND $category IN labels(e)
+        MATCH (e)
+        WHERE toLower(e.text) = toLower($entity) AND $category IN labels(e)
         MERGE (t)-[:ALIGNS_WITH]->(e)
     """, 
     trait=row["trait_text"],
