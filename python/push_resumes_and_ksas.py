@@ -78,23 +78,31 @@ def push_to_neo4j(tx, record, entity_label, entity_key):
     query = f"""
         MATCH (r:Resume {{id: $resume_id}})
         MERGE (n:NounPhrase {{text: $noun_phrase}})
-        MERGE (e:{entity_label} {{text: $entity_text}})
+        MERGE (e:Entity:{entity_label} {{text: $entity_text}})
         MERGE (j:JobTitle {{title: $job_title}})
         SET j.onetsoc_code = $onetsoc_code
         MERGE (r)-[:CONTAINS]->(n)
         MERGE (n)-[s:SIMILAR_TO]->(e)
         SET s.score = $similarity_score
+        {"SET s.example_text = $example_text" if entity_label in ["Tools", "Tech"] else ""}
         MERGE (e)-[rj:REQUIRED_FOR]->(j)
         SET rj.importance = $data_value
     """
-    tx.run(query,
-           resume_id=record["resume_id"],
-           noun_phrase=record["noun_phrase"],
-           entity_text=record[entity_key],
-           job_title=record["entity_job_title"],
-           similarity_score=round(record["similarity_score"], 4),
-           data_value=record["data_value"],
-           onetsoc_code=record["onetsoc_code"])
+
+    params = {
+        "resume_id": record["resume_id"],
+        "noun_phrase": record["noun_phrase"],
+        "entity_text": record[entity_key],
+        "job_title": record["entity_job_title"],
+        "similarity_score": round(record["similarity_score"], 4),
+        "data_value": record["data_value"],
+        "onetsoc_code": record["onetsoc_code"]
+    }
+
+    if entity_label in ["Tools", "Tech"]:
+        params["example_text"] = record["example_text"]
+
+    tx.run(query, **params)
 
 
 # ------------------------------------------
@@ -105,46 +113,61 @@ def main():
     # Reset the database
     clear_database()
 
-    # Detect all entity labels from filenames
-    entity_labels = []
-    for file in os.listdir(input_dir):
-        if file.endswith(".csv") and file.startswith("resume_"):
-            category = file.replace("resume_", "").replace("_similarity_matrix.csv", "")
-            entity_labels.append(category.capitalize())
+    #resume_abilities_similarity_matrix.csv  resume_skills_similarity_matrix.csv           similarity_matrix_tech.csv
+    #resume_knowledge_similarity_matrix.csv  resume_work_activities_similarity_matrix.csv  similarity_matrix_tools.csv
 
+    # Define fixed entity labels and expected files
+    entity_files = {
+        "Abilities": "resume_abilities_similarity_matrix.csv",
+        "Knowledge": "resume_knowledge_similarity_matrix.csv",
+        "Skills": "resume_skills_similarity_matrix.csv ",
+        "Workactivities": "resume_work_activities_similarity_matrix.csv",
+        "Tools": "similarity_matrix_tools.csv",
+        "Tech": "similarity_matrix_tech.csv"
+    }
+
+    entity_labels = list(entity_files.keys())
+
+    # Create constraints
     with driver.session() as session:
         session.execute_write(create_constraints, entity_labels)
         logging.info(f"✅ Constraints created for: {entity_labels}")
 
-    # Load and create resume nodes
+    # Create Resume nodes
     df_resumes = load_resumes_from_csv()
     with driver.session() as session:
         for _, row in df_resumes.iterrows():
             session.execute_write(push_resume_node, row["resume_id"], row["resume_text"], row["original_job"])
     logging.info(f"✅ Created {len(df_resumes)} Resume nodes.")
 
-    # Load similarity files and create graph links
+    # Load similarity CSVs and build graph
     with driver.session() as session:
-        for file in os.listdir(input_dir):
-            if file.endswith(".csv") and file.startswith("resume_"):
-                category = file.replace("resume_", "").replace("_similarity_matrix.csv", "")
-                entity_label = category.capitalize()
-                entity_key = f"{category}_entity"
-                file_path = os.path.join(input_dir, file)
+        for label, file in entity_files.items():
+            file_path = os.path.join(input_dir, file)
+            if not os.path.exists(file_path):
+                logging.warning(f"⚠️ File not found: {file_path}, skipping.")
+                continue
 
-                logging.info(f"📂 Loading: {file_path}")
-                df = pd.read_csv(file_path)
+            logging.info(f"📂 Loading: {file_path}")
+            df = pd.read_csv(file_path)
 
-                
-                required_cols = ["resume_id", "noun_phrase", entity_key, "similarity_score", "data_value", "entity_job_title", "onetsoc_code"]
-                if not all(col in df.columns for col in required_cols):
-                    logging.warning(f"⚠️ Required columns missing in {file}, skipping.")
-                    continue
+            entity_key = f"{label.lower()}_entity"
+            required_cols = [
+                "resume_id", "noun_phrase", entity_key,
+                "similarity_score", "data_value", "entity_job_title", "onetsoc_code"
+            ]
 
-                for _, row in df.iterrows():
-                    session.execute_write(push_to_neo4j, row, entity_label, entity_key)
+            if label in ["Tools", "Tech"]:
+                required_cols.append("example_text")
 
-                logging.info(f"✅ Finished pushing {category} data.")
+            if not all(col in df.columns for col in required_cols):
+                logging.warning(f"⚠️ Required columns missing in {file}, skipping.")
+                continue
+
+            for _, row in df.iterrows():
+                session.execute_write(push_to_neo4j, row, label, entity_key)
+
+            logging.info(f"✅ Finished pushing {label} data.")
 
     driver.close()
     logging.info("🎉 All graph data pushed successfully to Neo4j.")
