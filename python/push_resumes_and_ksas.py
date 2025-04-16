@@ -67,7 +67,7 @@ def push_resume_node(tx, resume_id, resume_text, original_job):
     tx.run("""
         MERGE (r:Resume {id: $resume_id})
         SET r.resume_text = $resume_text,
-            r.original_job = $original_job
+            r.name = $original_job
     """, resume_id=resume_id, resume_text=resume_text, original_job=original_job)
 
 # ------------------------------------------
@@ -113,15 +113,16 @@ def main():
     # Reset the database
     clear_database()
 
-    #resume_abilities_similarity_matrix.csv  resume_skills_similarity_matrix.csv           similarity_matrix_tech.csv
+    #resume_abilities_similarity_matrix.csv  resume_skills_similarity_matrix.csv resume_task_ratings_similarity_matrix.csv   similarity_matrix_tech.csv
     #resume_knowledge_similarity_matrix.csv  resume_work_activities_similarity_matrix.csv  similarity_matrix_tools.csv
 
     # Define fixed entity labels and expected files
     entity_files = {
         "Abilities": "resume_abilities_similarity_matrix.csv",
         "Knowledge": "resume_knowledge_similarity_matrix.csv",
-        "Skills": "resume_skills_similarity_matrix.csv ",
-        "Workactivities": "resume_work_activities_similarity_matrix.csv",
+        "Skills": "resume_skills_similarity_matrix.csv",
+        "Work_Activities": "resume_work_activities_similarity_matrix.csv",
+        "Task_Ratings": "resume_task_ratings_similarity_matrix.csv",
         "Tools": "similarity_matrix_tools.csv",
         "Tech": "similarity_matrix_tech.csv"
     }
@@ -143,7 +144,7 @@ def main():
     # Load similarity CSVs and build graph
     with driver.session() as session:
         for label, file in entity_files.items():
-            file_path = os.path.join(input_dir, file)
+            file_path = os.path.join(input_dir, file.strip())
             if not os.path.exists(file_path):
                 logging.warning(f"⚠️ File not found: {file_path}, skipping.")
                 continue
