@@ -84,7 +84,6 @@ def push_to_neo4j(tx, record, entity_label, entity_key):
         MERGE (r)-[:CONTAINS]->(n)
         MERGE (n)-[s:SIMILAR_TO]->(e)
         SET s.score = $similarity_score
-        {"SET s.example_text = $example_text" if entity_label in ["Tools", "Tech"] else ""}
         MERGE (e)-[rj:REQUIRED_FOR]->(j)
         SET rj.importance = $data_value
     """
@@ -92,17 +91,15 @@ def push_to_neo4j(tx, record, entity_label, entity_key):
     params = {
         "resume_id": record["resume_id"],
         "noun_phrase": record["noun_phrase"],
-        "entity_text": record[entity_key],
+        "entity_text": record[entity_key],  # Now holds example_text for Tools/Tech too
         "job_title": record["entity_job_title"],
         "similarity_score": round(record["similarity_score"], 4),
         "data_value": record["data_value"],
         "onetsoc_code": record["onetsoc_code"]
     }
 
-    if entity_label in ["Tools", "Tech"]:
-        params["example_text"] = record["example_text"]
-
     tx.run(query, **params)
+
 
 
 # ------------------------------------------
@@ -157,9 +154,6 @@ def main():
                 "resume_id", "noun_phrase", entity_key,
                 "similarity_score", "data_value", "entity_job_title", "onetsoc_code"
             ]
-
-            if label in ["Tools", "Tech"]:
-                required_cols.append("example_text")
 
             if not all(col in df.columns for col in required_cols):
                 logging.warning(f"⚠️ Required columns missing in {file}, skipping.")

@@ -1,4 +1,5 @@
 import os
+import json
 import pandas as pd
 import logging
 from textblob import TextBlob
@@ -22,6 +23,18 @@ logging.info(f"Using device: {device}")
 model = SentenceTransformer("all-MiniLM-L6-v2", device=device)
 
 # --------------------------------------------------
+# Load allowed job titles from job_title.json
+# --------------------------------------------------
+
+job_title_json_path = "../data/job_titles/jobs_titles.json"
+with open(job_title_json_path, "r") as f:
+    job_title_dict = json.load(f)
+
+# Extract the first element (actual job title) from each value
+ALLOWED_JOB_TITLES = set(v[0] for v in job_title_dict.values())
+logging.info(f"Loaded {len(ALLOWED_JOB_TITLES)} allowed job titles.")
+
+# --------------------------------------------------
 # Output directory for similarity matrices
 # --------------------------------------------------
 
@@ -41,20 +54,32 @@ def compute_resume_similarity(resume_row, df_onet, model, category_name, thresho
         if col not in df_onet.columns:
             logging.error(f"Missing column '{col}' in O*NET data for category '{category_name}'")
             return results
-    
-     # ❌ Remove rows that are not Importance scale (e.g., Level "LV")
+
+    # Filter to only 'Importance' scale entries
     df_onet = df_onet[df_onet["scale_id"] == "IM"].copy()
+
+    # Filter O*NET to only the allowed job titles
+    before_filter = len(df_onet)
+    df_onet = df_onet[df_onet["job_title"].isin(ALLOWED_JOB_TITLES)].copy()
+    after_filter = len(df_onet)
+    logging.info(f"[{category_name}] O*NET rows filtered by allowed job titles: {before_filter} → {after_filter}")
+
+    if df_onet.empty:
+        logging.warning(f"No relevant O*NET data after filtering for category '{category_name}'")
+        return results
+
     resume_id = resume_row["resume_id"]
     resume_text = resume_row["resume_text"]
     original_job = resume_row["original_job"]
 
+    # Extract noun phrases from resume
     blob = TextBlob(resume_text)
     noun_phrases = list(set(blob.noun_phrases))
     if not noun_phrases:
         logging.warning(f"No noun phrases found in resume ID {resume_id}")
         return results
 
-    # Unique entity values for embedding
+    # Create embeddings
     unique_entities = df_onet[entity_col].dropna().unique().tolist()
     entity_embeddings = model.encode(unique_entities, convert_to_numpy=True, batch_size=batch_size)
     resume_embeddings = model.encode(noun_phrases, convert_to_numpy=True, batch_size=batch_size)
@@ -62,7 +87,7 @@ def compute_resume_similarity(resume_row, df_onet, model, category_name, thresho
     # Cosine similarity matrix
     similarity_matrix = cosine_similarity(resume_embeddings, entity_embeddings)
 
-    # Map from entity to all rows with that entity
+    # Group O*NET rows by entity for efficient matching
     grouped_onet = df_onet.groupby(entity_col)
 
     for i, noun_phrase in enumerate(noun_phrases):
@@ -92,6 +117,8 @@ def compute_resume_similarity(resume_row, df_onet, model, category_name, thresho
 def main():
     resume_path = "../data/annotations_scenario_1/cleaned_resumes.csv"
     df_resumes = pd.read_csv(resume_path)
+
+    # Only use resumes with annotation_1 score ≥ 3
     df_resumes = df_resumes[df_resumes["annotation_1"].astype(int) >= 3]
 
     onet_dir = "../data/o_net_files"
